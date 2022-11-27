@@ -33,9 +33,9 @@ const updateItem = (req, res) => {
 
   ClothingItem.findByIdAndUpdate(itemId, {$set: {imageURL}}).orFail()
   .then((item) => res.status(200).send({ data:item }))
-    .catch((e) => {
-      res.status(500).send({message: "Error from updateItem", e})
-    })
+  .catch((e) => {
+    res.status(500).send({message: "Error from updateItem", e})
+  })
 }
 
 // Delete Clothing Item
