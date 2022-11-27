@@ -31,7 +31,7 @@ const createUser = (req, res) => {
       console.log(3);
       res.status(201).send({ User: user });
     })
-    .catch((e) => res.status(500).send({ message: 'Error from createItem', e }));
+    .catch((e) => res.status(500).send({ message: 'Error from createUser', e }));
 }
 
 module.exports = {
