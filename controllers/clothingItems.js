@@ -1,5 +1,6 @@
 const ClothingItem = require('../models/clothingItem');
 
+// Create Clothing Item
 const createItem = (req, res) => {
   console.log(req);
   console.log(req.body);
@@ -15,7 +16,7 @@ const createItem = (req, res) => {
   })
 };
 
-
+// Get Clothing Items
 const getItems = (req, res) => {
   ClothingItem.find({})
   .then((items) => res.status(200).send({ items }))
@@ -24,6 +25,7 @@ const getItems = (req, res) => {
   });
 }
 
+// Update Clothing Item
 const updateItem = (req, res) => {
   const { itemId } = req.params;
   const { imageURL } = req.body;
@@ -36,7 +38,7 @@ const updateItem = (req, res) => {
     })
 }
 
-
+// Delete Clothing Item
 const deleteItem = (req, res) => {
   const { itemId } = req.params;
   console.log(itemId);
