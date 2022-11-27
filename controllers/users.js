@@ -5,7 +5,7 @@ const getUsers = (req, res) => {
   User.find({})
     .then((users) => {
       console.log(users)
-      res.status(200).send({ data: users })
+      res.status(200).send({ User: users })
     })
     .catch((e) => res.status(500).send({ message: 'Error from getUsers' }));
 }
@@ -17,7 +17,7 @@ const getUserById = (req, res) => {
 
   User.findById({ userId })
     .orFail()
-    .then((user) => res.status(200).send({ data: user }))
+    .then((user) => res.status(200).send({ User: user }))
     .catch((e) => res.status(500).send({ message: 'Error from getUserById' }));
 }
 
@@ -29,7 +29,7 @@ const createUser = (req, res) => {
   User.create({ name, avatar })
     .then((user) => {
       console.log(3);
-      res.status(201).send({ data: user });
+      res.status(201).send({ User: user });
     })
     .catch((e) => res.status(500).send({ message: 'Error from createItem', e }));
 }
