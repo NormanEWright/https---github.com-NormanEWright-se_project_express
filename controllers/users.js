@@ -12,7 +12,7 @@ const getUsers = (req, res) => {
 
 // Get user by id
 const getUserById = (req, res) => {
-  const { userId } = req.body;
+  const { userId } = req.body._id;
   console.log(userId);
 
   User.findById({ userId })
@@ -23,11 +23,12 @@ const getUserById = (req, res) => {
 
 // Create a user
 const createUser = (req, res) => {
+  console.log(1);
   const { name, avatar } = req.body;
-
+  console.log(2)
   User.create({ name, avatar })
     .then((user) => {
-      console.log(user);
+      console.log(3);
       res.status(201).send({ data: user });
     })
     .catch((e) => res.status(500).send({ message: 'Error from createItem', e }));
