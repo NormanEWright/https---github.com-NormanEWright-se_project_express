@@ -8,12 +8,12 @@ mongoose.connect('mongodb://localhost:27017/wtwr_db', (r) => {
 
 const routes = require('./routes');
 app.use(express.json());
-// app.use((req, res, next) => {
-//   req.user = {
-//     _id: '5d8b8592978f8bd833ca8133',
-//   };
-//   next();
-// });
+app.use((req, res, next) => {
+  req.user = {
+    _id: '6383f7a41409e3265720fe33',
+  };
+  next();
+});
 app.use(routes);
 
 app.listen(PORT, () => {
