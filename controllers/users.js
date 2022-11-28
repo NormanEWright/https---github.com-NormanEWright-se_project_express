@@ -23,13 +23,10 @@ const getUserById = (req, res) => {
 
 // Create a user
 const createUser = (req, res) => {
-  console.log(1);
   const { name, avatar } = req.body;
-  console.log(2)
   User.create({ name, avatar })
     .then((user) => {
-      console.log(3);
-      res.status(201).send({ User: user });
+      res.status(200).send({ User: user });
     })
     .catch((e) => res.status(500).send({ message: 'Error from createUser', e }));
 }
