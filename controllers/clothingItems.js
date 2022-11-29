@@ -4,10 +4,10 @@ const ClothingItem = require('../models/clothingItem');
 const createItem = (req, res) => {
   console.log(req);
   console.log(req.user._id);
-  const userId = req.user._id;
+  const owner = req.user._id;
   const {name, weather, imageURL} = req.body;
 
-  ClothingItem.create({name, weather, imageURL, userId})
+  ClothingItem.create({ name, weather, imageURL, owner })
   .then((item) => {
     console.log(item);
     res.status(201).send({ ClothingItem: item });
